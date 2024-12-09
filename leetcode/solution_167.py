@@ -1,14 +1,11 @@
-from typing import List
-
-class Solution:
-    def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        cache = {}
-        for i in range(len(numbers)):
-            if target - numbers[i] in cache:
-                return [cache[target - numbers[i]]+1, i+1]
-            cache[numbers[i]] = i
-        return [-1, -1]
+# https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/description/
+def two_sub(numbers: list, target: int) -> list:
+    table = {}
+    for i in range(len(numbers)):
+        if target - numbers[i] in table:
+            return [table[target - numbers[i]]+1, i+1]
+        table[numbers[i]] = i
+    return []
 
 if __name__ == '__main__':
-    s = Solution()
-    print(s.twoSum([2, 7, 11, 15], 9))
+    print(two_sub([2, 7, 11, 15], 9))
